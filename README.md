@@ -13,9 +13,6 @@ gus-srod1121
 
 ###  Any important comments you'd like to make about your work:
 
-> [!IMPORTANT]
-> Java 25 would not work with LibGDX, so I set the project to use Java 21, and my project SDK is "21 java 21.0.9"
-
 
 # LibGDX
 
