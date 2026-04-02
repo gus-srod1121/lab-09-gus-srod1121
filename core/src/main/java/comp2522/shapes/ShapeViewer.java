@@ -11,18 +11,19 @@ import com.badlogic.gdx.utils.viewport.ExtendViewport;
 public class ShapeViewer extends ApplicationAdapter {
     private SpriteBatch batch;
     private ExtendViewport viewport;
-    private Texture image;
 
     @Override
     public void create() {
         batch = new SpriteBatch();
-        image = new Texture("libgdx.png");
+        viewport = new ExtendViewport(320, 180);
     }
 
     @Override
     public void render() {
         ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
+
         viewport.apply();
+        batch.setProjectionMatrix(viewport.getCamera().combined);
 
         logic();
         draw();
@@ -30,13 +31,10 @@ public class ShapeViewer extends ApplicationAdapter {
 
     private void logic() {
         float delta = Gdx.graphics.getDeltaTime();
-
     }
 
     private void draw() {
-        batch.begin();
-        batch.draw(image, 140, 210);
-        batch.end();
+
     }
 
     @Override
@@ -47,6 +45,5 @@ public class ShapeViewer extends ApplicationAdapter {
     @Override
     public void dispose() {
         batch.dispose();
-        image.dispose();
     }
 }
