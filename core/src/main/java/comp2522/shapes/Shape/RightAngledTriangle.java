@@ -11,8 +11,8 @@ import java.util.Objects;
  * @version 2026
  */
 public class RightAngledTriangle extends Shape {
-    private final double base;
-    private final double height;
+    private final float base;
+    private final float height;
 
     /**
      * Constructs a RightAngledTriangle object with a name, a base and a height.
@@ -22,7 +22,7 @@ public class RightAngledTriangle extends Shape {
      * @param height The height length of the RightAngledTriangle
      * @throws IllegalArgumentException if base or height are not positive
      */
-    public RightAngledTriangle(final String name, final double base, final double height, float x, float y) {
+    public RightAngledTriangle(final String name, final float base, final float height, float x, float y) {
         super(x, y);
         if (base <= 0 || height <= 0) {
             throw new IllegalArgumentException("Base and height must be positive");
@@ -32,12 +32,16 @@ public class RightAngledTriangle extends Shape {
     }
 
     /**
-     * Renders the Shape.
+     * Renders a right-angled triangle.
      *
      * @param renderer A ShapeRenderer
      */
     public void render(final ShapeRenderer renderer) {
-
+        renderer.triangle(
+            getX(), getY(),
+            getX() + base, getY(),
+            getX(), getY() + height
+        );
     }
 
     /**
@@ -81,7 +85,7 @@ public class RightAngledTriangle extends Shape {
      *
      * @return the base of the Triangle
      */
-    public double getBase() {
+    public float getBase() {
         return base;
     }
 
@@ -90,7 +94,7 @@ public class RightAngledTriangle extends Shape {
      *
      * @return the height of the Triangle
      */
-    public double getHeight() {
+    public float getHeight() {
         return height;
     }
 
