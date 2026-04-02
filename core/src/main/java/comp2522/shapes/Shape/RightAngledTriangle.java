@@ -22,7 +22,7 @@ public class RightAngledTriangle extends Shape {
      * @param height The height length of the RightAngledTriangle
      * @throws IllegalArgumentException if base or height are not positive
      */
-    public RightAngledTriangle(final String name, float x, float y, final double base, final double height) {
+    public RightAngledTriangle(final String name, final double base, final double height, float x, float y) {
         super(name, x, y);
         if (base <= 0 || height <= 0) {
             throw new IllegalArgumentException("Base and height must be positive");

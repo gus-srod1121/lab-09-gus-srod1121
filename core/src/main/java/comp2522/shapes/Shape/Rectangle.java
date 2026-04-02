@@ -22,7 +22,7 @@ public class Rectangle extends Shape {
      * @param height The height of the Rectangle
      * @throws IllegalArgumentException if width or height are not positive
      */
-    public Rectangle(final String name, float x, float y, final float width, final float height) {
+    public Rectangle(final String name, final float width, final float height, float x, float y) {
         super(name, x, y);
         if (width <= 0 || height <= 0) {
             throw new IllegalArgumentException("Width and height must be positive");

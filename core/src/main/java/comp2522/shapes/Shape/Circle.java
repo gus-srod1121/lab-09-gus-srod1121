@@ -20,7 +20,7 @@ public class Circle extends Shape {
      * @param radius The radius of the Circle.
      * @throws IllegalArgumentException if radius is not positive.
      */
-    public Circle(final String name, final float x, final float y, final float radius) {
+    public Circle(final String name, final float radius, final float x, final float y) {
         super(name, x, y);
         if (radius <= 0) {
             throw new IllegalArgumentException("Radius must be positive");
