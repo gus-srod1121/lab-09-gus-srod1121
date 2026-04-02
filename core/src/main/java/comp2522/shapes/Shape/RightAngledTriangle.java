@@ -1,4 +1,6 @@
-package comp2522.shapes;
+package comp2522.shapes.Shape;
+
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 import java.util.Objects;
 
@@ -20,13 +22,22 @@ public class RightAngledTriangle extends Shape {
      * @param height The height length of the RightAngledTriangle
      * @throws IllegalArgumentException if base or height are not positive
      */
-    public RightAngledTriangle(final String name, final double base, final double height) {
-        super(name);
+    public RightAngledTriangle(final String name, float x, float y, final double base, final double height) {
+        super(name, x, y);
         if (base <= 0 || height <= 0) {
             throw new IllegalArgumentException("Base and height must be positive");
         }
         this.base = base;
         this.height = height;
+    }
+
+    /**
+     * Renders the Shape.
+     *
+     * @param renderer A ShapeRenderer
+     */
+    public void render(final ShapeRenderer renderer) {
+
     }
 
     /**

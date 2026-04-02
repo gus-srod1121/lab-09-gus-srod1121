@@ -1,4 +1,6 @@
-package comp2522.shapes;
+package comp2522.shapes.Shape;
+
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 import java.util.Objects;
 
@@ -9,7 +11,7 @@ import java.util.Objects;
  * @version 2026
  */
 public class Circle extends Shape {
-    private final double radius;
+    private final float radius;
 
     /**
      * Constructs a Circle object with a name and a radius.
@@ -18,12 +20,21 @@ public class Circle extends Shape {
      * @param radius The radius of the Circle.
      * @throws IllegalArgumentException if radius is not positive.
      */
-    public Circle(final String name, final double radius) {
-        super(name);
+    public Circle(final String name, final float x, final float y, final float radius) {
+        super(name, x, y);
         if (radius <= 0) {
             throw new IllegalArgumentException("Radius must be positive");
         }
         this.radius = radius;
+    }
+
+    /**
+     * Renders the Shape.
+     *
+     * @param renderer A ShapeRenderer
+     */
+    public void render(final ShapeRenderer renderer) {
+        renderer.circle(getX(), getY(), radius);
     }
 
     /**
@@ -51,7 +62,7 @@ public class Circle extends Shape {
      *
      * @return The diameter of the Circle.
      */
-    public double getRadius() {
+    public float getRadius() {
         return radius;
     }
 

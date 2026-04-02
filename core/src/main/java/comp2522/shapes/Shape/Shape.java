@@ -1,4 +1,6 @@
-package comp2522.shapes;
+package comp2522.shapes.Shape;
+
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 /**
  * Represents a shape with a name.
@@ -10,13 +12,17 @@ public abstract class Shape implements Measurable, Describable, Comparable<Shape
     private static final String DEFAULT_NAME = "SHAPE";
 
     private final String name;
+    private final float x;
+    private final float y;
 
     /**
      * Constructs a Shape object with a name.
      *
      * @param name The name of the Shape
      */
-    public Shape(final String name) {
+    public Shape(final String name, float x, float y) {
+        this.x = x;
+        this.y = y;
         if (name == null || name.isBlank()) {
             this.name = DEFAULT_NAME;
         } else {
@@ -32,6 +38,31 @@ public abstract class Shape implements Measurable, Describable, Comparable<Shape
     public String getName() {
         return name;
     }
+
+    /**
+     * Returns the X position.
+     *
+     * @return the X position.
+     */
+    public float getX() {
+        return x;
+    }
+
+    /**
+     * Returns the Y position.
+     *
+     * @return the Y position.
+     */
+    public float getY() {
+        return y;
+    }
+
+    /**
+     * Renders the Shape.
+     *
+     * @param renderer A ShapeRenderer
+     */
+    public abstract void render(final ShapeRenderer renderer);
 
     /**
      * Compares two shapes by area, perimeter, and name.

@@ -1,4 +1,6 @@
-package comp2522.shapes;
+package comp2522.shapes.Shape;
+
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 import java.util.Objects;
 
@@ -20,13 +22,22 @@ public class Rectangle extends Shape {
      * @param height The height of the Rectangle
      * @throws IllegalArgumentException if width or height are not positive
      */
-    public Rectangle(final String name, final double width, final double height) {
-        super(name);
+    public Rectangle(final String name, float x, float y, final double width, final double height) {
+        super(name, x, y);
         if (width <= 0 || height <= 0) {
             throw new IllegalArgumentException("Width and height must be positive");
         }
         this.width = width;
         this.height = height;
+    }
+
+    /**
+     * Renders the Shape.
+     *
+     * @param renderer A ShapeRenderer
+     */
+    public void render(final ShapeRenderer renderer) {
+
     }
 
     /**
