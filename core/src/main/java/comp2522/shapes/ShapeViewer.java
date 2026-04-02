@@ -45,7 +45,6 @@ public final class ShapeViewer extends ApplicationAdapter {
         ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
 
         viewport.apply();
-        batch.setProjectionMatrix(viewport.getCamera().combined);
 
         logic();
         draw();
@@ -56,6 +55,7 @@ public final class ShapeViewer extends ApplicationAdapter {
     }
 
     private void draw() {
+        shapeRenderer.setProjectionMatrix(viewport.getCamera().combined);
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
         for (Shape shape : shapes) {
             shape.render(shapeRenderer);
