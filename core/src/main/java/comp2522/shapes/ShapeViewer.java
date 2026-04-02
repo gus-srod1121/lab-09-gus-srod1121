@@ -13,7 +13,6 @@ import comp2522.shapes.Shape.ShapeLoader;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
 public final class ShapeViewer extends ApplicationAdapter {
-    private SpriteBatch batch;
     private ExtendViewport viewport;
 
     private Array<Shape> shapes;
@@ -21,7 +20,6 @@ public final class ShapeViewer extends ApplicationAdapter {
 
     @Override
     public void create() {
-        batch = new SpriteBatch();
         viewport = new ExtendViewport(320, 180);
 
         shapeRenderer = new ShapeRenderer();
@@ -70,7 +68,6 @@ public final class ShapeViewer extends ApplicationAdapter {
 
     @Override
     public void dispose() {
-        batch.dispose();
         shapeRenderer.dispose();
     }
 }
