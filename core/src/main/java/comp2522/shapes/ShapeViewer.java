@@ -24,6 +24,8 @@ public final class ShapeViewer extends ApplicationAdapter {
         batch = new SpriteBatch();
         viewport = new ExtendViewport(320, 180);
 
+        shapeRenderer = new ShapeRenderer();
+
         FileHandle shapesFilePath = Gdx.files.internal("shapes.txt");
         loadShapes(shapesFilePath);
     }
@@ -54,14 +56,11 @@ public final class ShapeViewer extends ApplicationAdapter {
     }
 
     private void draw() {
-        batch.begin();
-
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
         for (Shape shape : shapes) {
             shape.render(shapeRenderer);
         }
-
-        batch.end();
+        shapeRenderer.end();
     }
 
     @Override
