@@ -10,11 +10,11 @@ package comp2522.shapes.Shape;
 public final class ShapeParser {
 
     /* Expected field count for a Circle */
-    private static final int CIRCLE_FIELDS = 2;
+    private static final int CIRCLE_FIELDS = 4;
     /* Expected field count for a Rectangle */
-    private static final int RECTANGLE_FIELDS = 3;
+    private static final int RECTANGLE_FIELDS = 6;
     /* Expected field count for a RightAngledTriangle */
-    private static final int TRIANGLE_FIELDS = 3;
+    private static final int TRIANGLE_FIELDS = 6;
 
     /*
      * Private constructor to prevent instantiation.
@@ -65,15 +65,15 @@ public final class ShapeParser {
         switch (type) {
             case "Circle":
                 verifyFieldCount(parts, CIRCLE_FIELDS);
-                return new Circle(parts[0], Double.parseDouble(parts[1]));
+                return new Circle(parts[0], Float.parseFloat(parts[1]), Float.parseFloat(parts[2]), Float.parseFloat(parts[3]));
             case "Rectangle":
                 verifyFieldCount(parts, RECTANGLE_FIELDS);
                 return new Rectangle(
-                        parts[0], Double.parseDouble(parts[1]), Double.parseDouble(parts[2]));
+                        parts[0], Float.parseFloat(parts[1]), Float.parseFloat(parts[2]), Float.parseFloat(parts[3]), Float.parseFloat(parts[4]));
             case "RightAngledTriangle":
                 verifyFieldCount(parts, TRIANGLE_FIELDS);
                 return new RightAngledTriangle(
-                        parts[0], Double.parseDouble(parts[1]), Double.parseDouble(parts[2]));
+                        parts[0], Float.parseFloat(parts[1]), Float.parseFloat(parts[2]), Float.parseFloat(parts[3]), Float.parseFloat(parts[4]));
             default:
                 throw new InvalidShapeDataException("Invalid shape " + type);
         }
