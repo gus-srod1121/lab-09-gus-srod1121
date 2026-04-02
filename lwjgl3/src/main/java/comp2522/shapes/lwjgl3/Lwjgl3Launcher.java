@@ -2,10 +2,14 @@ package comp2522.shapes.lwjgl3;
 
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
+import com.badlogic.gdx.math.GridPoint2;
 import comp2522.shapes.ShapeViewer;
 
 /** Launches the desktop (LWJGL3) application. */
 public class Lwjgl3Launcher {
+    private static final int RESOLUTION_X = 1280;
+    private static final int RESOLUTION_Y = 720;
+
     public static void main(String[] args) {
         if (StartupHelper.startNewJvmIfRequired()) return; // This handles macOS support and helps on Windows.
         createApplication();
@@ -28,7 +32,7 @@ public class Lwjgl3Launcher {
         //// useful for testing performance, but can also be very stressful to some hardware.
         //// You may also need to configure GPU drivers to fully disable Vsync; this can cause screen tearing.
 
-        configuration.setWindowedMode(640, 480);
+        configuration.setWindowedMode(RESOLUTION_X, RESOLUTION_Y);
         //// You can change these files; they are in lwjgl3/src/main/resources/ .
         //// They can also be loaded from the root of assets/ .
         configuration.setWindowIcon("libgdx128.png", "libgdx64.png", "libgdx32.png", "libgdx16.png");
