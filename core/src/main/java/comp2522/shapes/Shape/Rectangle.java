@@ -11,8 +11,8 @@ import java.util.Objects;
  * @version 2026
  */
 public class Rectangle extends Shape {
-    private final double width;
-    private final double height;
+    private final float width;
+    private final float height;
 
     /**
      * Constructs a Rectangle object with a name.
@@ -22,7 +22,7 @@ public class Rectangle extends Shape {
      * @param height The height of the Rectangle
      * @throws IllegalArgumentException if width or height are not positive
      */
-    public Rectangle(final String name, float x, float y, final double width, final double height) {
+    public Rectangle(final String name, float x, float y, final float width, final float height) {
         super(name, x, y);
         if (width <= 0 || height <= 0) {
             throw new IllegalArgumentException("Width and height must be positive");
@@ -37,7 +37,7 @@ public class Rectangle extends Shape {
      * @param renderer A ShapeRenderer
      */
     public void render(final ShapeRenderer renderer) {
-
+        renderer.rect(getX(), getY(), width, height);
     }
 
     /**
@@ -65,7 +65,7 @@ public class Rectangle extends Shape {
      *
      * @return the width of the Rectangle
      */
-    public double getWidth() {
+    public float getWidth() {
         return width;
     }
 
@@ -74,7 +74,7 @@ public class Rectangle extends Shape {
      *
      * @return the height of the Rectangle
      */
-    public double getHeight() {
+    public float getHeight() {
         return height;
     }
 
