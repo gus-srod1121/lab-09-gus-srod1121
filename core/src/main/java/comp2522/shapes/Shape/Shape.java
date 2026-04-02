@@ -11,32 +11,15 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 public abstract class Shape implements Measurable, Describable, Comparable<Shape> {
     private static final String DEFAULT_NAME = "SHAPE";
 
-    private final String name;
     private final float x;
     private final float y;
 
     /**
      * Constructs a Shape object with a name.
-     *
-     * @param name The name of the Shape
      */
-    public Shape(final String name, float x, float y) {
+    public Shape(float x, float y) {
         this.x = x;
         this.y = y;
-        if (name == null || name.isBlank()) {
-            this.name = DEFAULT_NAME;
-        } else {
-            this.name = name;
-        }
-    }
-
-    /**
-     * Returns the name of the shape.
-     *
-     * @return The name of the Shape
-     */
-    public String getName() {
-        return name;
     }
 
     /**
@@ -77,12 +60,7 @@ public abstract class Shape implements Measurable, Describable, Comparable<Shape
             return compareArea;
         }
 
-        int comparePerimeter = Double.compare(this.getPerimeter(), other.getPerimeter());
-        if (comparePerimeter != 0) {
-            return comparePerimeter;
-        }
-
-        return this.getName().compareTo(other.getName());
+        return Double.compare(this.getPerimeter(), other.getPerimeter());
     }
 
     /**
@@ -94,8 +72,7 @@ public abstract class Shape implements Measurable, Describable, Comparable<Shape
     public final String describe() {
         StringBuilder sb = new StringBuilder();
         sb.append("A ").append(getClass().getName());
-        sb.append(" named ").append(getName());
-        sb.append(", an area of ").append(getArea());
+        sb.append("with an area of ").append(getArea());
         sb.append(" and a perimeter of ").append(getPerimeter());
         return sb.toString();
     }
@@ -108,7 +85,8 @@ public abstract class Shape implements Measurable, Describable, Comparable<Shape
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("Shape{");
-        sb.append("name=").append(name);
+        sb.append("x=").append(x);
+        sb.append(", y=").append(y);
         sb.append("}");
         return sb.toString();
     }

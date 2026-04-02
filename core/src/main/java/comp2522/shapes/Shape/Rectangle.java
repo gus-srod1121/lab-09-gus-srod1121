@@ -23,7 +23,7 @@ public class Rectangle extends Shape {
      * @throws IllegalArgumentException if width or height are not positive
      */
     public Rectangle(final String name, final float width, final float height, float x, float y) {
-        super(name, x, y);
+        super(x, y);
         if (width <= 0 || height <= 0) {
             throw new IllegalArgumentException("Width and height must be positive");
         }
@@ -113,7 +113,10 @@ public class Rectangle extends Shape {
 
         Rectangle other = (Rectangle) object;
 
-        return width == other.width && height == other.height && getName().equals(other.getName());
+        return width == other.width
+            && height == other.height
+            && getX() == other.getX()
+            && getY() == other.getY();
     }
 
     /**
@@ -123,6 +126,6 @@ public class Rectangle extends Shape {
      */
     @Override
     public int hashCode() {
-        return Objects.hash(getWidth(), getHeight(), getName());
+        return Objects.hash(getWidth(), getHeight(), getX(), getY());
     }
 }

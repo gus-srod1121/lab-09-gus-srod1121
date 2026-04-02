@@ -23,7 +23,7 @@ public class RightAngledTriangle extends Shape {
      * @throws IllegalArgumentException if base or height are not positive
      */
     public RightAngledTriangle(final String name, final double base, final double height, float x, float y) {
-        super(name, x, y);
+        super(x, y);
         if (base <= 0 || height <= 0) {
             throw new IllegalArgumentException("Base and height must be positive");
         }
@@ -114,7 +114,10 @@ public class RightAngledTriangle extends Shape {
 
         RightAngledTriangle other = (RightAngledTriangle) object;
 
-        return base == other.base && height == other.height && getName().equals(other.getName());
+        return base == other.base
+            && height == other.height
+            && getX() == other.getX()
+            && getY() == other.getY();
     }
 
     /**
@@ -124,6 +127,6 @@ public class RightAngledTriangle extends Shape {
      */
     @Override
     public int hashCode() {
-        return Objects.hash(base, height, getName());
+        return Objects.hash(base, height, getX(), getY());
     }
 }

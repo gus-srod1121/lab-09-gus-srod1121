@@ -21,7 +21,7 @@ public class Circle extends Shape {
      * @throws IllegalArgumentException if radius is not positive.
      */
     public Circle(final String name, final float radius, final float x, final float y) {
-        super(name, x, y);
+        super(x, y);
         if (radius <= 0) {
             throw new IllegalArgumentException("Radius must be positive");
         }
@@ -101,7 +101,8 @@ public class Circle extends Shape {
         Circle other = (Circle) object;
 
         return radius == other.radius
-                && getName().equals(other.getName());
+            && getX() == other.getX()
+            && getY() == other.getY();
     }
 
     /**
@@ -111,6 +112,6 @@ public class Circle extends Shape {
      */
     @Override
     public int hashCode() {
-        return Objects.hash(radius, getName());
+        return Objects.hash(radius, getX(), getY());
     }
 }
