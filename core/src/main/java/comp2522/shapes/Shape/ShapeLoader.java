@@ -90,6 +90,15 @@ public class ShapeLoader {
     }
 
     /**
+     * Returns the amount of elements in the List of loaded shapes.
+     *
+     * @return The amount of loaded Shape objects.
+     */
+    public int getShapesCount() {
+        return shapes.size();
+    }
+
+    /**
      * Returns a string representation of the object.
      *
      * @return A string detailing the object's state.
