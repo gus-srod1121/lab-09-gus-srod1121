@@ -12,9 +12,9 @@ public final class ShapeParser {
     /* Expected field count for a Circle */
     private static final int CIRCLE_FIELDS = 4;
     /* Expected field count for a Rectangle */
-    private static final int RECTANGLE_FIELDS = 6;
+    private static final int RECTANGLE_FIELDS = 5;
     /* Expected field count for a RightAngledTriangle */
-    private static final int TRIANGLE_FIELDS = 6;
+    private static final int TRIANGLE_FIELDS = 5;
 
     /*
      * Private constructor to prevent instantiation.
