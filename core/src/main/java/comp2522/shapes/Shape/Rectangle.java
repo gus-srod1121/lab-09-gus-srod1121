@@ -41,6 +41,20 @@ public class Rectangle extends Shape {
     }
 
     /**
+     * Returns a description of the shape.
+     *
+     * @return A string describing the Shape
+     */
+    @Override
+    public String describe() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.describe());
+        sb.append(" width=").append(width);
+        sb.append(", height=").append(height);
+        return sb.toString();
+    }
+
+    /**
      * Returns the area of the rectangle.
      *
      * @return The area of the Rectangle

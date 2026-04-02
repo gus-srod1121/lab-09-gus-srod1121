@@ -45,6 +45,20 @@ public class RightAngledTriangle extends Shape {
     }
 
     /**
+     * Returns a description of the shape.
+     *
+     * @return A string describing the Shape
+     */
+    @Override
+    public String describe() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.describe());
+        sb.append(" base=").append(base);
+        sb.append(", height=").append(height);
+        return sb.toString();
+    }
+
+    /**
      * Returns the area of the right-angled triangle.
      *
      * @return The area of the RightAngledTriangle

@@ -38,6 +38,19 @@ public class Circle extends Shape {
     }
 
     /**
+     * Returns a description of the shape.
+     *
+     * @return A string describing the Shape
+     */
+    @Override
+    public String describe() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.describe());
+        sb.append(" radius=").append(radius);
+        return sb.toString();
+    }
+
+    /**
      * Calculates and returns the area of the circle.
      *
      * @return The area of the Circle.

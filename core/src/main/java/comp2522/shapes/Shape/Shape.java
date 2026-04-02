@@ -69,11 +69,10 @@ public abstract class Shape implements Measurable, Describable, Comparable<Shape
      * @return A string describing the Shape
      */
     @Override
-    public final String describe() {
+    public String describe() {
         StringBuilder sb = new StringBuilder();
-        sb.append("A ").append(getClass().getName());
-        sb.append("with an area of ").append(getArea());
-        sb.append(" and a perimeter of ").append(getPerimeter());
+        sb.append(getClass().getSimpleName()).append(" at ");
+        sb.append("(").append(x).append(", ").append(y).append(")");
         return sb.toString();
     }
 

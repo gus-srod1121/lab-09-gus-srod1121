@@ -22,6 +22,8 @@ public final class ShapeViewer extends ApplicationAdapter {
 
     @Override
     public void create() {
+        System.out.println("\n\nStarting ShapeViewer...");
+
         viewport = new ExtendViewport(320, 180);
         shapeRenderer = new ShapeRenderer();
 
@@ -35,10 +37,14 @@ public final class ShapeViewer extends ApplicationAdapter {
         ShapeLoader shapeLoader = new ShapeLoader();
         shapeLoader.loadShapes(filePath);
 
+        System.out.println("\nLoaded " + shapeLoader.getShapesCount() + " shapes.");
+
         shapes = new Array<>();
         for (Shape s : shapeLoader.getShapes()) {
             shapes.add(s);
+            System.out.println(s.describe());
         }
+
     }
 
     @Override
@@ -47,12 +53,11 @@ public final class ShapeViewer extends ApplicationAdapter {
 
         viewport.apply();
 
-        logic();
+        input();
         draw();
     }
 
-    private void logic() {
-        float delta = Gdx.graphics.getDeltaTime();
+    private void input() {
         if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
             shapeFillMode = !shapeFillMode;
         }
