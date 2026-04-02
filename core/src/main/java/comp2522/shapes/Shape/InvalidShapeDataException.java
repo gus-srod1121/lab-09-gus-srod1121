@@ -1,4 +1,4 @@
-package comp2522.shapes;
+package comp2522.shapes.Shape;
 
 /**
  * Exception thrown when shape data in invalid.

@@ -1,4 +1,4 @@
-package comp2522.shapes;
+package comp2522.shapes.Shape;
 
 /**
  * Handles parsing string data into Shape objects using comma-separated input values.

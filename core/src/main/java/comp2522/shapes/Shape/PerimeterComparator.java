@@ -1,4 +1,4 @@
-package comp2522.shapes;
+package comp2522.shapes.Shape;
 
 import java.util.Comparator;
 

@@ -1,4 +1,4 @@
-package comp2522.shapes;
+package comp2522.shapes.Shape;
 
 /**
  * An interface for an Object which can be measured by area and perimeter.

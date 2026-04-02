@@ -1,4 +1,4 @@
-package comp2522.shapes;
+package comp2522.shapes.Shape;
 
 /**
  * An interface for an object that can be described.

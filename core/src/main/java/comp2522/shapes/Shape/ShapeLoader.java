@@ -1,4 +1,6 @@
-package comp2522.shapes;
+package comp2522.shapes.Shape;
+
+import com.badlogic.gdx.files.FileHandle;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -26,12 +28,13 @@ public class ShapeLoader {
     }
 
     /**
-     * Reads shape data from the specified file path.
+     * Reads shape data from the specified file.
      *
-     * @param path The Path to the text file containing the shape data.
+     * @param file The Path to the text file containing the shape data.
      */
-    public void loadShapes(final Path path) {
+    public void loadShapes(final FileHandle file) {
         Scanner scanner;
+        Path path = Path.of(file.path());
         try {
             scanner = new Scanner(path);
         } catch (IOException e) {

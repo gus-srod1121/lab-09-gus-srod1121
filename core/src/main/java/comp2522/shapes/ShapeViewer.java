@@ -2,20 +2,40 @@ package comp2522.shapes;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
+import comp2522.shapes.Shape.Shape;
+import comp2522.shapes.Shape.ShapeLoader;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
-public class ShapeViewer extends ApplicationAdapter {
+public final class ShapeViewer extends ApplicationAdapter {
     private SpriteBatch batch;
     private ExtendViewport viewport;
+
+    private Array<Shape> shapes;
+    private ShapeRenderer shapeRenderer;
 
     @Override
     public void create() {
         batch = new SpriteBatch();
         viewport = new ExtendViewport(320, 180);
+
+        FileHandle shapesFilePath = Gdx.files.internal("shapes.txt");
+        loadShapes(shapesFilePath);
+    }
+
+    private void loadShapes(final FileHandle filePath) {
+        ShapeLoader shapeLoader = new ShapeLoader();
+        shapeLoader.loadShapes(filePath);
+
+        shapes = new Array<>();
+        for (Shape s : shapeLoader.getShapes()) {
+            shapes.add(s);
+        }
     }
 
     @Override
@@ -34,7 +54,14 @@ public class ShapeViewer extends ApplicationAdapter {
     }
 
     private void draw() {
+        batch.begin();
 
+        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
+        for (Shape shape : shapes) {
+            shape.render(shapeRenderer);
+        }
+
+        batch.end();
     }
 
     @Override
@@ -45,5 +72,6 @@ public class ShapeViewer extends ApplicationAdapter {
     @Override
     public void dispose() {
         batch.dispose();
+        shapeRenderer.dispose();
     }
 }
