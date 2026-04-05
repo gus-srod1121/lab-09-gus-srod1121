@@ -62,6 +62,13 @@ public final class ShapeViewer extends ApplicationAdapter {
         if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
             shapeFillMode = !shapeFillMode;
         }
+
+        if (Gdx.input.isKeyJustPressed(Input.Keys.P)) {
+            for (Shape shape : shapes)
+            {
+                System.out.println(shape.describe());
+            }
+        }
     }
 
     private void draw() {
