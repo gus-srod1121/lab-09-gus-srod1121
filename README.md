@@ -11,6 +11,9 @@ A01467866
 ###  Your GitHub name:
 gus-srod1121
 
+### Keyboard-Controlled Feature
+Pressing SPACE toggles between filled mode and line mode
+
 ###  Any important comments you'd like to make about your work:
 When clearing the screen, I used `ScreenUtils.clear`, which is the current standard for libGDX.
 
