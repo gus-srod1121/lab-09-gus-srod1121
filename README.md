@@ -12,7 +12,11 @@ A01467866
 gus-srod1121
 
 ###  Any important comments you'd like to make about your work:
+When clearing the screen, I used `ScreenUtils.clear`, which is the current standard for libGDX.
 
+Instead of having to define a clear color and then calling clear, we use `ScreenUtils.clear`, 
+a wrapper which abstracts away the low-level OpenGL and improves code readability.
+It also works for 3D!
 
 # LibGDX
 
