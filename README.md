@@ -15,8 +15,9 @@ gus-srod1121
 Pressing SPACE toggles between filled mode and line mode
 
 ###  Any important comments you'd like to make about your work:
-When clearing the screen, I used `ScreenUtils.clear`, which is the current standard for libGDX.
+1. There are unit tests,but I could not get them to work and I don't know why.
 
+1. When clearing the screen, I used `ScreenUtils.clear`, which is the current standard for libGDX.
 Instead of having to define a clear color and then calling clear, we use `ScreenUtils.clear`, 
 a wrapper which abstracts away the low-level OpenGL and improves code readability.
 It also works for 3D!
